@@ -1,0 +1,31 @@
+{% extends 'myblog/base.html' %}
+
+    {% block title %}
+    BLOG
+    {% endblock %}
+   {% block body %}
+<h1>LOGIN</h1>
+<div class="form-group">
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            
+            <input type="text" class="form-control" name="username" placeholder="username">
+            
+        </div>
+        <div class="form-group">
+
+            <input type="password" class="form-control" name="password" placeholder="password">
+
+            
+        </div>
+        
+        <button>LOGIN</button>
+
+        Not registered?
+        Sign up<a href="{% url 'register' %}">Sign Up</a>
+    </form>
+</div>
+   {% endblock %}
+
+

@@ -1,0 +1,56 @@
+{% extends 'myblog/base.html' %}
+{% load static %}
+    {% block title %}
+    Edit Settings
+    {% endblock %}
+   {% block body %}
+<h1>Edit Settings</h1>
+<br />
+
+{{page_user}}
+<br />
+<div class="card mb-3">
+    <div class="row no-gutters">
+        <div class="col-md-2">
+            {% if page_user.profile_pic %}
+            <img src="{{page_user.profile_pic.url}}" class="card-img">
+            {% else %}
+            <img src="{% static 'blog/images/download.png' %}" class="card-img">
+            {% endif %}
+        </div>
+        <div class="col-md-10">
+            <div class="card-body">
+                <h5 class="card-title">
+                    {{page_user.user.first_name}}
+                    {{page_user.user.last_name}}
+                </h5>
+                <p class="small text-muted">
+
+
+                    {% if page_user.website_url %}
+                    <a href="{{post.author.profile.website_url}}"> Website </a>|
+                    {% endif %}
+                    {% if page_user.fb_url %}
+                    <a href="{{post.author.profile.fb_url}}"> Facebook </a>|
+                    {% endif %}
+                    {% if page_user.insta_url %}
+                    <a href="{{post.author.profile.insta_url}}"> Instagaram </a>|
+                    {% endif %}
+                    {% if page_user.linkedin_url %}
+                    <a href="{{post.author.profile.linkedin_url}}">Linked In</a>
+                    {% endif %}
+                </p>
+                <p class="card-text">
+                    {{page_user.bio}}
+                </p>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+   {% endblock %}
+
+
+

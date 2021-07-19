@@ -1,0 +1,27 @@
+{% extends 'myblog/base.html' %}
+
+    {% block title %}
+    BLOG
+    {% endblock %}
+   {% block body %}
+{% if user.is_authenticated   %}
+<h1>ADD POST</h1>
+<div class="form-group">
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{form.media}}
+        {{form.as_p}}
+        <button>POST</button>
+    </form>
+</div>
+<script>
+    var name="{{ user.id }}";
+    document.getElementById("elder").value=name;
+</script>
+{% else %}
+YOu are not allowed here (and you no it).
+
+{% endif %}
+   {% endblock %}
+
+
