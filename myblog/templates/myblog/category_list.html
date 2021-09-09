@@ -1,0 +1,24 @@
+{% extends 'myblog/base.html' %}
+
+{% block body %}
+
+
+<div class="card my-4" style="width:100%;display:flex;justify-content:center;text-align:center;">
+    <div class="card-header">
+        <h1>CATEGORIES</h1>
+    </div>
+    
+        {% for item in cat_menu_list %}
+        <a class="dropdown-item" href="{% url 'category' item %}">
+           <div class='l' style="background-color: #203647; width:100%;height:200px; display:flex;justify-content:center;
+           text-align:center;flex-direction:column;" >
+            <h1 style="color:#FFFFFF">{{item|upper}}</h1>
+           </div>
+        </a>
+
+   {% endfor %}
+    
+  </div>
+     
+
+{% endblock %}
